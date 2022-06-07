@@ -1,0 +1,22 @@
+.form {
+    display: block;
+    margin-top: 10px;
+}
+
+.form input {
+    width: 100%;
+    margin-top: 10px;
+    
+}
+
+.form textarea {
+    width: 100%;
+    margin-top: 10px;
+    height: 4rem;
+}
+
+.form button {
+    margin-top: 20px;
+    height: 2rem;
+    width: 6rem;
+}

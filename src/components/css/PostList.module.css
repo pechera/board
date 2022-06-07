@@ -1,0 +1,15 @@
+.list {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 1rem;
+    
+
+}
+
+.list hr {
+    height: 1px;
+    background: rgba(128, 128, 128, 0.13);
+    border: none;
+} 
+
