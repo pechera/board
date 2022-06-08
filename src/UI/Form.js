@@ -20,6 +20,7 @@ const Form = (props) => {
       title: title.current.value,
       content: content.current.value,
     };
+
     props.onSubmit(data);
 
     title.current.value = "";

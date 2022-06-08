@@ -8,3 +8,21 @@
     border-radius: 8px;
     width: 30%;
 }
+
+.content a {
+    color: tomato;
+}
+
+.links {
+    font-size: 0.8rem;
+    
+}
+
+.links a {
+    margin-left: 0.3rem;
+    color: tomato;
+}
+
+.links span {
+    font-style: italic;
+}

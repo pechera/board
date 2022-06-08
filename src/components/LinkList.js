@@ -9,12 +9,12 @@ function LinkList({ id, total, submit }) {
     async function getLinks() {
       try {
         const res = await axios.get("http://localhost:7000/comment/" + id);
+
         setLinks(res.data);
       } catch (error) {
         console.log(error);
       }
     }
-
     if (id) getLinks();
   }, [total]);
 

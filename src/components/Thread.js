@@ -8,12 +8,15 @@ import Form from "../UI/Form";
 import Comments from "./Comments";
 import Header from "./Header";
 import LinkList from "./LinkList";
+import AddRef from "../components/AddRef";
 
 const Thread = () => {
   const [post, getPost] = useState({});
   const [comments, setComments] = useState([]);
   const [submitText, setSubmitText] = useState("");
   const [showForm, setShowForm] = useState(false);
+
+  const [links, setLinks] = useState([]);
 
   const { id } = useParams();
 
@@ -48,6 +51,12 @@ const Thread = () => {
     try {
       const res = await axios.post("http://localhost:7000/comment/" + id, data);
 
+      if (data.content.includes(">>")) {
+        const ids = AddRef(data.content, res.data.id);
+        setLinks(ids);
+        // ----> Comments
+      }
+
       setComments([...comments, res.data]);
     } catch (error) {
       console.log(error);
@@ -72,7 +81,7 @@ const Thread = () => {
         </span>
         <p>{post.content}</p>
         <ul>
-          <LinkList id={id} total={comments} submit={onComment} />
+          {/* <LinkList id={id} total={comments} submit={onComment} /> */}
         </ul>
       </div>
       <ul className={styles.comment__list}>
@@ -85,6 +94,7 @@ const Thread = () => {
             time={comment.createdAt}
             post={comment.postId}
             submit={onComment}
+            links={links}
           />
         ))}
       </ul>
